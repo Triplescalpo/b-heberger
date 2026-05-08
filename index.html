@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="TM pro-english est une plateforme EdTech immersive pour apprendre l'anglais avec niveaux, exercices, nombres, progression et assistant IA."
+    />
+    <title>TM pro-english | Learn English smarter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigation principale">
+        <a class="brand" href="#dashboard" aria-label="TM pro-english accueil">
+          <span class="brand-mark">TM</span>
+          <span>
+            <strong>TM pro-english</strong>
+            <small>Smart English Lab</small>
+          </span>
+        </a>
+        <nav class="nav-list">
+          <a href="#dashboard" class="nav-link active"><span>▦</span>Dashboard</a>
+          <a href="#lessons" class="nav-link"><span>📚</span>Leçons</a>
+          <a href="#exercises" class="nav-link"><span>🧩</span>Exercices</a>
+          <a href="#numbers" class="nav-link"><span>🔢</span>Nombres 0–1000</a>
+          <a href="#chat" class="nav-link"><span>🤖</span>Chat IA</a>
+          <a href="#progress" class="nav-link"><span>📊</span>Progression</a>
+        </nav>
+        <div class="sidebar-card">
+          <p>Objectif quotidien</p>
+          <strong><span id="dailyMinutes">18</span>/20 min</strong>
+          <div class="micro-progress"><span style="width: 90%"></span></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" type="button" aria-label="Ouvrir la navigation">☰</button>
+          <div>
+            <p class="eyebrow">Plateforme premium d'apprentissage</p>
+            <h1>Apprends l'anglais avec une progression intelligente.</h1>
+          </div>
+          <div class="topbar-actions">
+            <button id="themeToggle" class="ghost-button" type="button" aria-label="Basculer mode sombre">🌙</button>
+            <button class="primary-button call-button" type="button">Appeler &amp; s'entraîner</button>
+          </div>
+        </header>
+
+        <section id="dashboard" class="hero-grid">
+          <article class="hero-card glass-card">
+            <div class="hero-copy">
+              <span class="pill">IA + leçons + exercices</span>
+              <h2>Une expérience type Duolingo, Coursera et Babbel — adaptée à ton rythme.</h2>
+              <p>
+                Débloque les niveaux, pratique la grammaire, maîtrise les nombres de 0 à 1000 et converse avec un coach IA qui corrige tes erreurs.
+              </p>
+              <div class="hero-actions">
+                <button class="primary-button start-lesson" type="button">Commencer une leçon</button>
+                <button class="secondary-button" type="button" data-scroll="#chat">Tester le Chat IA</button>
+              </div>
+            </div>
+            <div class="phone-preview" aria-label="Aperçu mobile de l'application">
+              <div class="phone-top"></div>
+              <div class="lesson-bubble completed">Hello! <span>✓</span></div>
+              <div class="lesson-bubble active">Grammar sprint</div>
+              <div class="lesson-bubble locked">Advanced talk 🔒</div>
+            </div>
+          </article>
+
+          <article class="progress-card glass-card" id="progress">
+            <div class="section-heading compact">
+              <span class="icon-circle">📊</span>
+              <div>
+                <p class="eyebrow">Progression globale</p>
+                <h2><span id="progressValue">0</span>% complété</h2>
+              </div>
+            </div>
+            <div class="progress-track" aria-label="Progression globale de 0 à 100">
+              <span id="progressBar"></span>
+            </div>
+            <ul class="progress-metrics">
+              <li><strong id="lessonCount">0</strong><span>leçons terminées</span></li>
+              <li><strong id="scoreCount">0</strong><span>points</span></li>
+              <li><strong id="dialogCount">0</strong><span>dialogues</span></li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="lessons" class="section-card">
+          <div class="section-heading">
+            <span class="icon-circle">🟢</span>
+            <div>
+              <p class="eyebrow">Niveaux d'apprentissage</p>
+              <h2>Un parcours progressif verrouillé par réussite</h2>
+            </div>
+          </div>
+          <div class="levels-grid" id="levelsGrid"></div>
+        </section>
+
+        <section class="learning-grid">
+          <article class="section-card">
+            <div class="section-heading">
+              <span class="icon-circle">📖</span>
+              <div>
+                <p class="eyebrow">Vocabulaire par thèmes</p>
+                <h2>Mémorise avec des cartes rapides</h2>
+              </div>
+            </div>
+            <div class="tabs" id="vocabTabs"></div>
+            <div class="word-cloud" id="wordCloud"></div>
+          </article>
+
+          <article class="section-card grammar-card">
+            <div class="section-heading">
+              <span class="icon-circle">🧠</span>
+              <div>
+                <p class="eyebrow">Grammaire & conjugaison</p>
+                <h2>Règles essentielles + pratique</h2>
+              </div>
+            </div>
+            <div class="rule-list">
+              <button class="rule-item" type="button" data-rule="Articles: use a before consonant sounds, an before vowel sounds, and the for specific things.">Articles: a / an / the</button>
+              <button class="rule-item" type="button" data-rule="Subject-verb agreement: he, she, it usually take an -s in the present simple.">Accords sujet/verbe</button>
+              <button class="rule-item" type="button" data-rule="Essential tenses: present simple for habits, present continuous for actions happening now, past simple for finished actions.">Temps verbaux essentiels</button>
+            </div>
+            <p id="grammarExplanation" class="explanation-box">Sélectionne une règle pour afficher une explication simple.</p>
+            <div class="conjugation-lab">
+              <label for="verbSelect">Conjugaison interactive</label>
+              <select id="verbSelect">
+                <option value="to be">to be</option>
+                <option value="to have">to have</option>
+                <option value="to learn">to learn</option>
+              </select>
+              <div id="conjugationOutput" class="conjugation-output"></div>
+            </div>
+          </article>
+        </section>
+
+        <section id="numbers" class="section-card numbers-section">
+          <div class="section-heading">
+            <span class="icon-circle">🔢</span>
+            <div>
+              <p class="eyebrow">Module spécial</p>
+              <h2>Apprendre les nombres de 0 à 1000 en anglais</h2>
+            </div>
+          </div>
+          <div class="numbers-layout">
+            <div class="number-converter">
+              <label for="numberInput">Entre un nombre</label>
+              <input id="numberInput" type="number" min="0" max="1000" value="100" />
+              <div class="number-result"><span id="numberWord">one hundred</span></div>
+              <button id="listenNumber" class="secondary-button" type="button">Écouter</button>
+            </div>
+            <div class="number-examples">
+              <span>1 = one</span>
+              <span>10 = ten</span>
+              <span>100 = one hundred</span>
+              <span>1000 = one thousand</span>
+            </div>
+            <div class="quiz-card">
+              <p class="eyebrow">Mini quiz</p>
+              <h3 id="quizPrompt">Écris 42 en anglais</h3>
+              <input id="quizAnswer" type="text" placeholder="Ex: forty-two" />
+              <button id="checkQuiz" class="primary-button" type="button">Corriger</button>
+              <p id="quizFeedback" class="feedback"></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="exercises" class="section-card exercises-section">
+          <div class="section-heading">
+            <span class="icon-circle">🧩</span>
+            <div>
+              <p class="eyebrow">Correction automatique</p>
+              <h2>Exercices intelligents avec score</h2>
+            </div>
+          </div>
+          <div class="exercise-card">
+            <p id="exerciseQuestion">Complete: She ___ English every day.</p>
+            <div class="choice-grid" id="choiceGrid"></div>
+            <p id="exerciseFeedback" class="feedback"></p>
+          </div>
+        </section>
+
+        <section id="chat" class="chat-section section-card">
+          <div class="section-heading">
+            <span class="icon-circle">🤖</span>
+            <div>
+              <p class="eyebrow">Mode Appeler & s'entraîner</p>
+              <h2>Chat IA texte + vocal avec corrections</h2>
+            </div>
+          </div>
+          <div class="chat-layout">
+            <div class="scenario-panel">
+              <h3>Simulations réelles</h3>
+              <button type="button" data-scenario="restaurant">Restaurant</button>
+              <button type="button" data-scenario="school">École</button>
+              <button type="button" data-scenario="travel">Voyage</button>
+              <button type="button" data-scenario="work">Travail</button>
+              <div class="voice-card">
+                <span class="pulse-dot"></span>
+                <strong>Mode vocal prêt</strong>
+                <small>Utilise la synthèse vocale du navigateur pour écouter les réponses.</small>
+              </div>
+            </div>
+            <div class="chatbot-card">
+              <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+              <form id="chatForm" class="chat-form">
+                <input id="chatInput" type="text" placeholder="Write a sentence in English..." autocomplete="off" />
+                <button class="primary-button" type="submit">Envoyer</button>
+              </form>
+              <div class="translator-box">
+                <label for="translatorInput">Traducteur instantané anglais ↔ langue locale</label>
+                <div class="translator-controls">
+                  <input id="translatorInput" type="text" placeholder="Hello, how are you?" />
+                  <button id="translateButton" class="secondary-button" type="button">Traduire</button>
+                </div>
+                <p id="translationOutput">Bonjour, comment vas-tu ?</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card"><strong>7</strong><span>jours de série</span></article>
+          <article class="stat-card"><strong>12</strong><span>badges gagnés</span></article>
+          <article class="stat-card"><strong>84%</strong><span>réussite quiz</span></article>
+          <article class="stat-card"><strong>3</strong><span>objectifs actifs</span></article>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
